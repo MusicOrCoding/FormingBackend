@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: forming-dev
+
+  config:
+    activate:
+      on-profile: oauth, jwt
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/MassSound?useSSL=false&serverTimezone=Asia/Seoul&characterEncoding=UTF-8
+    username: root
+    password: {root password}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true #JPA가 실행하는 SQL 을 콘솔에 출력
+    properties:
+      hibernate.format_sql: true
+      dialect: org.hibernate.dialect.MySQL8InnoDBDialect #사용하는 DB 지정
+      format_sql: true #JPA가 실행하는 SQL 을 형식화하여 읽기 쉽게 만들어 줌
