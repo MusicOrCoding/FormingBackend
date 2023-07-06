@@ -1,11 +1,14 @@
 package com.tave.forming.domain.user;
 
 import com.tave.forming.domain.BaseTimeEntity;
+import com.tave.forming.domain.survey.Survey;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Getter
@@ -15,6 +18,9 @@ public class User extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
+
+    @OneToMany(mappedBy = "user")
+    private List<Survey> surveys = new ArrayList<>();
 
     @Column(nullable = false)
     private String name;

@@ -114,10 +114,11 @@ public class Survey extends BaseTimeEntity {
     }
 
     @Builder
-    public Survey(String title, String content, int is_team, int question_count, LocalDateTime deadline_date, Long max_participants, int is_over, Long reward_point, Long cost_point, String target, Long team_id, Question... questions) {
-        for(Question question: questions) {
-            this.addQuestion(question);
-        }
+    public Survey( String title, String content, int is_team, int question_count, LocalDateTime deadline_date, Long max_participants, int is_over, Long reward_point, Long cost_point, String target, Long team_id, User user) {
+//        for(Question question: questions) {
+//            this.addQuestion(question);
+//        }
+        this.user = user;
         this.title = title;
         this.content = content;
         this.is_team = is_team;

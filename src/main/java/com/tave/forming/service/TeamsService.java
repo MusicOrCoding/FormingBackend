@@ -1,7 +1,7 @@
 package com.tave.forming.service;
 
+import com.tave.forming.domain.jpa.TeamsRepository;
 import com.tave.forming.domain.teams.Teams;
-import com.tave.forming.domain.teams.TeamsRepository;
 import com.tave.forming.dto.TeamsResponseDto;
 import com.tave.forming.dto.TeamsSaveRequestDto;
 import com.tave.forming.dto.TeamsUpdateRequestDto;

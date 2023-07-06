@@ -51,7 +51,7 @@ public class Question extends BaseTimeEntity {
     }
 
     //==생성 메서드==//
-    public static Question createQuestion(Long question_num, String title, String type, int option_count, AnswerOption... answer_options) {
+    public static Question createQuestion(Long question_num, String title, String type, int option_count, AnswerOption... answerOptions) {
         Question question = new Question();
         question.question_num = question_num;
         question.title = title;
@@ -77,10 +77,11 @@ public class Question extends BaseTimeEntity {
 
 
     @Builder
-    public Question(Long question_num, String title, String type, int option_count) {
+    public Question(Long question_num, String title, String type, int option_count, Survey survey) {
         this.question_num = question_num;
         this.title = title;
         this.type = type;
         this.option_count = option_count;
+        this.survey = survey;
     }
 }

@@ -1,6 +1,7 @@
 package com.tave.forming.domain.teams;
 
 import com.tave.forming.domain.BaseTimeEntity;
+import com.tave.forming.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -19,9 +20,9 @@ public class Teams extends BaseTimeEntity {
     private Long id;
 
     //팀 생성한 사용자와 연관관계 매핑
-//    @ManyToOne
-//    @JoinColumn("user_id")
-//    private User user;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User ownerUser;
 
     @Column(nullable = false, name = "team_name", unique = true)
     private String name;

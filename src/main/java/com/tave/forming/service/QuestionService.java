@@ -1,8 +1,9 @@
 package com.tave.forming.service;
 
-import com.tave.forming.domain.survey.*;
-import com.tave.forming.domain.survey.QuestionRepository;
-import com.tave.forming.domain.survey.SurveyRepository;
+import com.tave.forming.domain.jpa.QuestionRepository;
+import com.tave.forming.domain.jpa.SurveyRepository;
+import com.tave.forming.domain.survey.AnswerOption;
+import com.tave.forming.domain.survey.Question;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
