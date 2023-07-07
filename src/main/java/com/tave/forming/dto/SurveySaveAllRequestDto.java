@@ -1,6 +1,7 @@
 package com.tave.forming.dto;
 
-import com.tave.forming.domain.survey.Survey;
+import com.tave.forming.domain.survey.AnswerOption;
+import com.tave.forming.domain.survey.Question;
 import com.tave.forming.domain.teams.Teams;
 import com.tave.forming.domain.user.User;
 import lombok.Builder;
@@ -8,15 +9,18 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
-public class SurveySaveRequestDto {
+public class SurveySaveAllRequestDto {
+
     private User user;
 
     private Teams team;
 
-    //private List<Question> questions = new ArrayList<>();
+    private List<Question> questions = new ArrayList<>();
 
     private String title;
 
@@ -38,13 +42,10 @@ public class SurveySaveRequestDto {
 
     private String target;
 
+    private List<AnswerOption> answerOptions;
 
-
-
-
-    //Question엔티티 dto들은 어떻게 처리할지..
     @Builder
-    public SurveySaveRequestDto(User user, String title, String content, int is_team, int question_count, LocalDateTime deadline_date, Long max_participants, int is_over, Long reward_point, Long cost_point, String target, Teams team) {
+    public SurveySaveAllRequestDto(User user, String title, String content, int is_team, int question_count, LocalDateTime deadline_date, Long max_participants, int is_over, Long reward_point, Long cost_point, String target, Teams team, List<Question> questions, List<AnswerOption> answerOptions) {
 
         this.user = user;
         this.title = title;
@@ -58,21 +59,14 @@ public class SurveySaveRequestDto {
         this.cost_point = cost_point;
         this.target = target;
         this.team = team;
+        this.answerOptions = answerOptions;
+        this.questions = questions;
+
     }
 
-    public Survey toEntity() {
-        return Survey.builder()
-                .title(title)
-                .content(content)
-                .is_team(is_team)
-                .question_count(question_count)
-                .deadline_date(deadline_date)
-                .max_participants(max_participants)
-                .is_over(is_over)
-                .reward_point(reward_point)
-                .cost_point(cost_point)
-                .target(target)
-                .team(team)
-                .build();
-    }
+//    public toEntity() {
+//
+//    }
+
+
 }

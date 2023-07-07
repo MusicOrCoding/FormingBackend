@@ -2,7 +2,9 @@ package com.tave.forming.domain.jpa;
 
 import com.tave.forming.domain.survey.Question;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface QuestionRepository extends JpaRepository<Question,Long> {
 
@@ -26,5 +28,6 @@ public interface QuestionRepository extends JpaRepository<Question,Long> {
 
 List<Question> findQuestionsBySurvey(Long id);
 List<Question> findAll();
+Optional<Question> findById(Long id);
 
 }
