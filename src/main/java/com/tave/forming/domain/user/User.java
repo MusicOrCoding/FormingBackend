@@ -1,6 +1,7 @@
 package com.tave.forming.domain.user;
 
 import com.tave.forming.domain.BaseTimeEntity;
+import com.tave.forming.domain.joinInfo.JoinInfo;
 import com.tave.forming.domain.survey.Survey;
 import lombok.Builder;
 import lombok.Getter;
@@ -18,6 +19,9 @@ public class User extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
     private Long id;
+
+    @OneToMany(mappedBy = "user")
+    private List<JoinInfo> joinInfoList = new ArrayList<>();
 
     @OneToMany(mappedBy = "user")
     private List<Survey> surveys = new ArrayList<>();

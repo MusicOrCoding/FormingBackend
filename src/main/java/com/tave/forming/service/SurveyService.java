@@ -1,7 +1,9 @@
 package com.tave.forming.service;
 
+import com.tave.forming.domain.jpa.QuestionRepository;
 import com.tave.forming.domain.jpa.SurveyRepository;
 import com.tave.forming.domain.jpa.UserRepository;
+import com.tave.forming.domain.survey.AnswerOption;
 import com.tave.forming.domain.survey.Survey;
 import com.tave.forming.dto.SurveySaveRequestDto;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,8 @@ public class SurveyService {
 
     private final UserRepository userRepository;
     private final SurveyRepository surveyRepository;
+    private final QuestionRepository questionRepository;
+    private final AnswerOption answerOption;
 
     //설문조사 생성
     @Transactional

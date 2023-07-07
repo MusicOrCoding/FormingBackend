@@ -1,5 +1,6 @@
 package com.tave.forming.domain.survey;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -33,6 +34,12 @@ public class AnswerOption{
 
         return answerOption;
 
+    }
+
+    @Builder
+    public AnswerOption(Question question, String content) {
+        this.question = question;
+        this.content = content;
     }
 
 

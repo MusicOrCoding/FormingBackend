@@ -1,22 +1,22 @@
 package com.tave.forming.dto;
 
-import com.tave.forming.domain.survey.Question;
 import com.tave.forming.domain.survey.Survey;
+import com.tave.forming.domain.teams.Teams;
 import com.tave.forming.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
 
 @Getter
 @NoArgsConstructor
 public class SurveySaveRequestDto {
     private User user;
 
-    private List<Question> questions = new ArrayList<>();
+    private Teams team;
+
+    //private List<Question> questions = new ArrayList<>();
 
     private String title;
 
@@ -38,30 +38,13 @@ public class SurveySaveRequestDto {
 
     private String target;
 
-    //private Long user_id;
 
-    private Long team_id;
-
-    // ==연관관계 메서드 == //
-//    public void addQuestion(Question question) {
-//        questions.add(question);
-//        question.setSurvey(this);
-//    }
-
-    //==비즈니스 로직==//
-    public void addQuestion(int num) {
-        this.question_count += num;
-    }
-
-    public void removeQuestion(int num) {
-        this.question_count -= num;
-    }
 
 
 
     //Question엔티티 dto들은 어떻게 처리할지..
     @Builder
-    public SurveySaveRequestDto(User user, String title, String content, int is_team, int question_count, LocalDateTime deadline_date, Long max_participants, int is_over, Long reward_point, Long cost_point, String target, Long team_id) {
+    public SurveySaveRequestDto(User user, String title, String content, int is_team, int question_count, LocalDateTime deadline_date, Long max_participants, int is_over, Long reward_point, Long cost_point, String target, Teams team) {
 
         this.user = user;
         this.title = title;
@@ -74,7 +57,7 @@ public class SurveySaveRequestDto {
         this.reward_point = reward_point;
         this.cost_point = cost_point;
         this.target = target;
-        this.team_id = team_id;
+        this.team = team;
     }
 
     public Survey toEntity() {
@@ -89,7 +72,7 @@ public class SurveySaveRequestDto {
                 .reward_point(reward_point)
                 .cost_point(cost_point)
                 .target(target)
-                .team_id(team_id)
+                .team(team)
                 .build();
     }
 }

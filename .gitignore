@@ -148,4 +148,8 @@ replay_pid*
 .gradle/7.6.1/checksums/**
 .gradle/7.6.1/fileHashes/**
 
+src/test
+H2
+src/main/resources
+
 # End of https://www.toptal.com/developers/gitignore/api/java,intellij
