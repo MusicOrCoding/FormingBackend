@@ -29,6 +29,8 @@ public class Answer extends BaseTimeEntity {
 
     private String content;
 
+
+
     @Builder
     public Answer(User user, AnswerOption answerOption, String content) {
         this.user = user;
