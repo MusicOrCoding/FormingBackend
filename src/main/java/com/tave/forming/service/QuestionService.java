@@ -2,13 +2,9 @@ package com.tave.forming.service;
 
 import com.tave.forming.domain.jpa.QuestionRepository;
 import com.tave.forming.domain.jpa.SurveyRepository;
-import com.tave.forming.domain.survey.AnswerOption;
-import com.tave.forming.domain.survey.Question;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
@@ -18,6 +14,14 @@ public class QuestionService {
     private final QuestionRepository questionRepository;
     private final SurveyRepository surveyRepository;
 
+    @Transactional
+    public Long createQuestion()
+
+
+
+
+
+    /**
     //질문 추가
     @Transactional
     public Long addQuestion( Long question_num, String title, String type, int option_count, AnswerOption... answer_options){
@@ -43,4 +47,5 @@ public class QuestionService {
     public Question findOne(Long question_id) {
         return questionRepository.findById(question_id).get();
     }
+    **/
 }

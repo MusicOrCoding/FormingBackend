@@ -2,7 +2,10 @@ package com.tave.forming.service;
 
 import com.tave.forming.domain.jpa.TeamsRepository;
 import com.tave.forming.domain.teams.Teams;
+<<<<<<< Updated upstream
 import com.tave.forming.dto.TeamsListResponseDto;
+=======
+>>>>>>> Stashed changes
 import com.tave.forming.dto.TeamsResponseDto;
 import com.tave.forming.dto.TeamsSaveRequestDto;
 import com.tave.forming.dto.TeamsUpdateRequestDto;

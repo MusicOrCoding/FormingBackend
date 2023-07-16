@@ -1,6 +1,6 @@
 package com.tave.forming.dto;
 
-import com.tave.forming.domain.survey.AnswerOption;
+import com.tave.forming.domain.survey.Option;
 import com.tave.forming.domain.survey.Question;
 import com.tave.forming.domain.teams.Teams;
 import com.tave.forming.domain.user.User;
@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +28,11 @@ public class SurveySaveAllRequestDto {
 
     private int is_team;
 
-    private int question_count;
+    private LocalDate deadline_date;
 
-    private LocalDateTime deadline_date;
+    private int max_participants;
 
-    private Long max_participants;
-
-    private int is_over;
+    private boolean is_over;
 
     private Long reward_point;
 
@@ -42,16 +40,14 @@ public class SurveySaveAllRequestDto {
 
     private String target;
 
-    private List<AnswerOption> answerOptions;
+    private List<Option> answerOptions;
 
     @Builder
-    public SurveySaveAllRequestDto(User user, String title, String content, int is_team, int question_count, LocalDateTime deadline_date, Long max_participants, int is_over, Long reward_point, Long cost_point, String target, Teams team, List<Question> questions, List<AnswerOption> answerOptions) {
-
+    public SurveySaveAllRequestDto(User user, String title, String content, int is_team, LocalDate deadline_date, int max_participants, boolean is_over, Long reward_point, Long cost_point, String target, Teams team, List<Question> questions, List<Option> Options) {
         this.user = user;
         this.title = title;
         this.content = content;
         this.is_team = is_team;
-        this.question_count = question_count;
         this.deadline_date = deadline_date;
         this.max_participants = max_participants;
         this.is_over = is_over;
@@ -59,14 +55,10 @@ public class SurveySaveAllRequestDto {
         this.cost_point = cost_point;
         this.target = target;
         this.team = team;
-        this.answerOptions = answerOptions;
+        this.answerOptions = Options;
         this.questions = questions;
-
     }
 
-//    public toEntity() {
-//
-//    }
 
 
 }

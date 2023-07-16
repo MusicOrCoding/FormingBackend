@@ -26,7 +26,7 @@ public class Question extends BaseTimeEntity {
 
     //답변옵션 엔티티와 연관관계 매핑
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    private List<AnswerOption> answerOptions = new ArrayList<>();
+    private List<Option> answerOptions = new ArrayList<>();
 
     //문항넘버(해당 설문조사 내 몇번째 문항인지)
     private Long question_num;
@@ -44,12 +44,8 @@ public class Question extends BaseTimeEntity {
         this.survey = survey;
     }
 
-    //== 연관관계 메서드 ==//
-    public void addOption(AnswerOption option) {
-        answerOptions.add(option);
-        option.setQuestion(this);
-    }
 
+    /*
     //==생성 메서드==//
     public static Question createQuestion(Long question_num, String title, String type, int option_count, AnswerOption... answerOptions) {
         Question question = new Question();
@@ -59,21 +55,15 @@ public class Question extends BaseTimeEntity {
         question.option_count = option_count;
 
 
-        for(AnswerOption answerOption: answerOptions) {
+        for(Option Option: answerOptions) {
             question.addOption(answerOption);
         }
 
         return question;
     }
 
-    //==비즈니스 로직==//
-    public void addOptionNum(int num) {
-        this.option_count += num;
-    }
+     */
 
-    public void cancelOption(int num) {
-        this.option_count -= 1;
-    }
 
 
     @Builder

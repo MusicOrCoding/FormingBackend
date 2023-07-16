@@ -1,6 +1,5 @@
 package com.tave.forming.dto;
 
-import com.tave.forming.domain.survey.AnswerOption;
 import com.tave.forming.domain.survey.Question;
 import lombok.Builder;
 import lombok.Getter;

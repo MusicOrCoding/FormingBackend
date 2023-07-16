@@ -1,5 +1,6 @@
 package com.tave.forming.dto;
 
+import com.tave.forming.domain.survey.Survey;
 import com.tave.forming.domain.teams.GroupType;
 import com.tave.forming.domain.teams.Teams;
 import lombok.Getter;
@@ -18,5 +19,9 @@ public class TeamsResponseDto {
         this.group_type = entity.getGroup_type();
         this.password = entity.getPassword();
         this.point = entity.getPoint();
+    }
+
+    public Survey toEntity() {
+
     }
 }
