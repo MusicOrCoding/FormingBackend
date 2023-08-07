@@ -6,6 +6,7 @@ import com.tave.forming.config.auth.OAuth2SuccessHandler;
 import com.tave.forming.config.jwt.TokenProvider;
 import com.tave.forming.domain.jpa.RefreshTokenRepository;
 import com.tave.forming.domain.user.Role;
+import com.tave.forming.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -23,7 +24,7 @@ public class SpringSecurityConfig {
     private final CustomOAuth2UserService customOAuth2UserService;
     private final TokenProvider tokenProvider;
     private final RefreshTokenRepository refreshTokenRepository;
-    private final Userservice userService;
+    private final UserService userService;
 
 
     @Bean

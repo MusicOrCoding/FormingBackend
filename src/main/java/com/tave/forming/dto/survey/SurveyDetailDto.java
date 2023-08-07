@@ -1,12 +1,14 @@
-package com.tave.forming.dto;
+package com.tave.forming.dto.survey;
 
 import com.tave.forming.domain.survey.Survey;
 import lombok.Builder;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDate;
 
+@Getter
 @Setter
 @RequiredArgsConstructor
 public class SurveyDetailDto {
@@ -19,10 +21,11 @@ public class SurveyDetailDto {
     private Long reward_point;
     private Long cost_point;
     private String target;
+    private Long teamId;
 
     @Builder
     public SurveyDetailDto(String title, String content, int is_team, LocalDate deadline_date, int max_participants,
-                           boolean is_over, Long reward_point, Long cost_point, String target){
+                           boolean is_over, Long reward_point, Long cost_point, String target, Long teamId, Long userId){
         this.title = title;
         this.content = content;
         this.is_team = is_team;
@@ -32,6 +35,7 @@ public class SurveyDetailDto {
         this.reward_point = reward_point;
         this.cost_point = cost_point;
         this.target = target;
+        this.teamId = teamId;
     }
 
     public Survey toEntity(){
@@ -45,6 +49,7 @@ public class SurveyDetailDto {
                 .reward_point(reward_point)
                 .cost_point(cost_point)
                 .target(target)
+                .teamId(teamId)
                 .build();
     }
 

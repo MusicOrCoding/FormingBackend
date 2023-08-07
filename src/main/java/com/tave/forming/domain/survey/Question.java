@@ -23,13 +23,16 @@ public class Question extends BaseTimeEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "survey_id")
     private Survey survey;
-
+//
     //답변옵션 엔티티와 연관관계 매핑
     @OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-    private List<Option> answerOptions = new ArrayList<>();
+    private List<Option> answerOptionList = new ArrayList<>();
+
+    // 설문조사 PK
+    private Long surveyId;
 
     //문항넘버(해당 설문조사 내 몇번째 문항인지)
-    private Long question_num;
+    private Long questionNum;
 
     //문항 내용(질문명)
     private String title;
@@ -38,11 +41,8 @@ public class Question extends BaseTimeEntity {
     private String type;
 
     //해당 문항의 답변 선택지(option) 개수
-    private int option_count;
+    private int optionCount;
 
-    public void setSurvey(Survey survey) {
-        this.survey = survey;
-    }
 
 
     /*
@@ -67,11 +67,13 @@ public class Question extends BaseTimeEntity {
 
 
     @Builder
-    public Question(Long question_num, String title, String type, int option_count, Survey survey) {
-        this.question_num = question_num;
+    public Question(Survey survey, Long questionNum, String title, String type, int optionCount, Long surveyId, List<Option> answerOptionList) {
+        this.survey = survey;
+        this.questionNum = questionNum;
         this.title = title;
         this.type = type;
-        this.option_count = option_count;
-        this.survey = survey;
+        this.optionCount = optionCount;
+        this.surveyId = surveyId;
+        this.answerOptionList = answerOptionList;
     }
 }

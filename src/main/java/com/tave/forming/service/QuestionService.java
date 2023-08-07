@@ -14,8 +14,8 @@ public class QuestionService {
     private final QuestionRepository questionRepository;
     private final SurveyRepository surveyRepository;
 
-    @Transactional
-    public Long createQuestion()
+//    @Transactional
+//    public Long createQuestion();
 
 
 

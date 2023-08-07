@@ -1,4 +1,4 @@
-package com.tave.forming.dto;
+package com.tave.forming.dto.survey;
 
 import com.tave.forming.domain.survey.Option;
 import com.tave.forming.domain.survey.Question;

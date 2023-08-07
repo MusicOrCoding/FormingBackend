@@ -1,13 +1,13 @@
 package com.tave.forming.domain.jpa;
 
 import com.tave.forming.domain.survey.Survey;
-import lombok.RequiredArgsConstructor;
+import com.tave.forming.domain.teams.Teams;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 import java.util.Optional;
 
+//설문조사 내용 저장
 public interface SurveyRepository extends JpaRepository<Survey, Long> {
 
     Optional<Survey> findById(Long id);
@@ -15,6 +15,7 @@ public interface SurveyRepository extends JpaRepository<Survey, Long> {
     List<Survey> findByTitle(String title);
     List<Survey> findByUserId(Long id);
     List<Survey> findAllByDesc();
+    List<Survey> findByTeam(Teams team);
 
 
 }

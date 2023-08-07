@@ -1,5 +1,6 @@
 package com.tave.forming.domain.joinInfo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.tave.forming.domain.BaseTimeEntity;
 import com.tave.forming.domain.teams.Teams;
 import com.tave.forming.domain.user.User;
@@ -9,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -26,10 +28,14 @@ public class JoinInfo extends BaseTimeEntity {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Seoul")
+    private LocalDateTime joinDate;
+
     @Builder
-    public JoinInfo(Teams team, User user) {
+    public JoinInfo(Teams team, User user, LocalDateTime joinDate) {
         this.team = team;
         this.user = user;
+        this.joinDate = joinDate;
     }
 
 }

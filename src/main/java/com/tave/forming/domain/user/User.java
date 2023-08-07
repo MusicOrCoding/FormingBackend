@@ -20,9 +20,11 @@ public class User extends BaseTimeEntity {
     @Column(name = "user_id")
     private Long id;
 
+    //사용자가 속한 팀 정보
     @OneToMany(mappedBy = "user")
     private List<JoinInfo> joinInfoList = new ArrayList<>();
 
+    //사용자가 생성한 설문조사
     @OneToMany(mappedBy = "user")
     private List<Survey> surveys = new ArrayList<>();
 

@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 import java.util.Optional;
 
+//설문조사의 문항(질문)내용 저장
 public interface QuestionRepository extends JpaRepository<Question,Long> {
 
 /**

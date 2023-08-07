@@ -1,8 +1,8 @@
 package com.tave.forming.domain.survey;
 
+import com.tave.forming.domain.BaseTimeEntity;
 import com.tave.forming.domain.teams.Teams;
 import com.tave.forming.domain.user.User;
-import com.tave.forming.domain.BaseTimeEntity;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
@@ -33,7 +33,7 @@ public class Survey extends BaseTimeEntity {
     private Teams team;
 
     @OneToMany(mappedBy = "survey", cascade = CascadeType.ALL)
-    private List<Question> questions = new ArrayList<>();
+    private List<Question> questionList = new ArrayList<>();
 
     @Column(name = "title")
     private String title;
@@ -43,43 +43,48 @@ public class Survey extends BaseTimeEntity {
     private String content;
 
     //팀 설문조사 여부. 0이면 개인 설문조사, 1이면 팀 설문조사.
-    private int is_team;
+    private int isTeam;
 
     //마감 일자
-    private LocalDate deadline_date;
+    private LocalDate deadlineDate;
 
     //최대 참여 인원
-    private int max_participants;
+    private int maxParticipants;
 
     //마감 여부. 0이면 false(마감x), 1이면 true(마감o)
-    private boolean is_over;
+    private int isOver;
 
     //리워드 포인트 가격
-    private Long reward_point;
+    private Long rewardPoint;
 
     //만드는 데 드는 포인트
-    private Long cost_point;
+    private Long costPoint;
 
     //설문조사 대상
     private String target;
 
     //작성한 사용자 id
-    //private Long user_id;
+    private Long userId;
 
     //작성한 팀 id
-    //private Long team_id;
+    private Long teamId;
 
 
     @Builder
-    public Survey(String title, String content, int is_team, LocalDate deadline_date, int max_participants, boolean is_over, Long reward_point, Long cost_point, String target) {
+    public Survey(User user, Teams team, String title, String content, int isTeam, LocalDate deadlineDate, int maxParticipants, int isOver, Long rewardPoint, Long costPoint, String target, Long teamId, Long userId, List<Question> questionList) {
+        this.user = user;
+        this.team = team;
         this.title = title;
         this.content = content;
-        this.is_team = is_team;
-        this.deadline_date = deadline_date;
-        this.max_participants = max_participants;
-        this.is_over = is_over;
-        this.reward_point = reward_point;
-        this.cost_point = cost_point;
+        this.isTeam = isTeam;
+        this.deadlineDate = deadlineDate;
+        this.maxParticipants = maxParticipants;
+        this.isOver = isOver;
+        this.rewardPoint = rewardPoint;
+        this.costPoint = costPoint;
         this.target = target;
+        this.teamId = teamId;
+        this.userId = userId;
+        this.questionList = questionList;
     }
 }

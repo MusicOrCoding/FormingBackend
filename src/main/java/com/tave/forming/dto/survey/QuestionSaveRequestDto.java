@@ -1,4 +1,4 @@
-package com.tave.forming.dto;
+package com.tave.forming.dto.survey;
 
 import com.tave.forming.domain.survey.Question;
 import com.tave.forming.domain.survey.Survey;
@@ -8,30 +8,30 @@ import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-public class QuestionSaveRequestDto {
+public class QuestionSaveRequestDto {  //설문조사 질문 저장
 
-    private Survey survey;
+    private Long surveyId;
     private Long questionNum;
     private String title;
     private String type;
     private int optionCount;
 
     @Builder
-    public QuestionSaveRequestDto(Survey survey, Long questionNum, String title, String type, int optionCount) {
-        this.survey = survey;
+    public QuestionSaveRequestDto(Long surveyId, Long questionNum, String title, String type, int optionCount) {
+        this.surveyId = surveyId;
         this.questionNum = questionNum;
         this.title = title;
         this.type = type;
         this.optionCount = optionCount;
     }
 
-    public Question toEntity() {
-        return Question.builder().
-                survey(survey)
-                .question_num(questionNum)
+    public Question toEntity(Survey survey) {
+        return Question.builder()
+                .survey(survey)
+                .questionNum(questionNum)
                 .title(title)
                 .type(type)
-                .option_count(optionCount)
+                .optionCount(optionCount)
                 .build();
     }
 }

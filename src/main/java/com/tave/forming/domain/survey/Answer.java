@@ -25,14 +25,14 @@ public class Answer extends BaseTimeEntity {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "answer_option_id")
-    private AnswerOption answerOption;
+    private Option answerOption;
 
     private String content;
 
 
 
     @Builder
-    public Answer(User user, AnswerOption answerOption, String content) {
+    public Answer(User user, Option answerOption, String content) {
         this.user = user;
         this.answerOption = answerOption;
         this.content = content;

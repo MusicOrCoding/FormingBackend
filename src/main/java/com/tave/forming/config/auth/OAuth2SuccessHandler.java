@@ -65,7 +65,7 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
     //인증 관련 설정값, 쿠키 제거
     private void clearAuthenticationAttributes(HttpServletRequest request, HttpServletResponse response){
         super.clearAuthenticationAttributes(request);
-        authorizationRequsetRepository.removeAuthorizationRequestCookies(request, response);
+        oAuth2AuthorizationRequestBasedOnCookieRepository.removeAuthorizationRequestCookies(request, response);
     }
 
     private String getTargetUrl(String token){

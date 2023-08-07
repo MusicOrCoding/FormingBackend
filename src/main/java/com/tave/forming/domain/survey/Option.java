@@ -4,10 +4,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 @Getter
@@ -19,18 +16,23 @@ public class Option {
     @NotNull
     private Long id;
 
-    private Long survey_id;
+    private Long surveyId;
 
-    private Long question_id;
+    private Long questionId;
 
     private String content;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "question_id")
+    private Question question;
+
     @Builder
-    public Option(Long id, Long survey_id, Long question_id, String content){
+    public Option(Long id, Long surveyId, Long questionId, String content, Question question){
         this.id = id;
-        this.survey_id = survey_id;
-        this.question_id = question_id;
+        this.surveyId = surveyId;
+        this.questionId = questionId;
         this.content = content;
+        this.question = question;
     }
 
 

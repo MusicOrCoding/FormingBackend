@@ -1,11 +1,8 @@
 package com.tave.forming.domain.teams;
 
 import com.tave.forming.domain.BaseTimeEntity;
-<<<<<<< Updated upstream
 import com.tave.forming.domain.joinInfo.JoinInfo;
 import com.tave.forming.domain.survey.Survey;
-=======
->>>>>>> Stashed changes
 import com.tave.forming.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,7 +23,7 @@ public class Teams extends BaseTimeEntity {
     @Column(name="team_id")
     private Long id;
 
-<<<<<<< Updated upstream
+
     //팀 생성한 사용자와 연관관계 매핑
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id")
@@ -39,14 +36,7 @@ public class Teams extends BaseTimeEntity {
     @OneToMany(mappedBy = "team")
     private List<JoinInfo> joinInfoList = new ArrayList<>();
 
-=======
-    /**팀 생성한 사용자와 연관관계 매핑
-    //    @ManyToOne
-    /    @JoinColumn("user_id")
-    **/
 
-    //private User user;
->>>>>>> Stashed changes
 
     @Column(nullable = false, name = "team_name", unique = true)
     private String name;
